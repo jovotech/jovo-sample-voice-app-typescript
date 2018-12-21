@@ -1,14 +1,14 @@
 {
   "name": "jovo-sample-voice-app-typescript",
-  "version": "2.0.1-beta.6",
+  "version": "2.0.2",
   "description": "A sample voice app that works with the Jovo Framework and Typescript",
   "main": "src/index.js",
   "dependencies": {
-    "jovo-db-filedb": "^2.0.1-beta.6",
-    "jovo-framework": "^2.0.1-beta.6",
-    "jovo-platform-alexa": "^2.0.1-beta.6",
-    "jovo-platform-googleassistant": "^2.0.1-beta.6",
-    "jovo-plugin-debugger": "^2.0.1-beta.6"
+    "jovo-db-filedb": "^2.0.2",
+    "jovo-framework": "^2.0.2",
+    "jovo-platform-alexa": "^2.0.2",
+    "jovo-platform-googleassistant": "^2.0.2",
+    "jovo-plugin-debugger": "^2.0.2"
   },
   "devDependencies": {
     "@types/jest": "^23.3.1",
@@ -25,11 +25,13 @@
     "gulp-zip": "^4.2.0"
   },
   "scripts": {
-    "start": "node src/index.js --webhook",
     "tslint": "tslint -p tsconfig.json -c tslint.json",
     "tsc": "tsc",
+    "typedoc": "typedoc --out ./docs ./ --mode file",
     "test": "jest",
-    "bundle": "gulp --gulpfile node_modules/jovo-framework/gulpfile.js ./"
+    "bundle": "gulp --gulpfile node_modules/jovo-framework/gulpfile.js build-ts --cwd ./dist",
+    "start": "cd dist/src && node index.js --webhook",
+    "launch": "npm start -- --launch"
   },
   "repository": {
     "type": "git",
@@ -38,7 +40,7 @@
   "author": "Jovo",
   "license": "Apache-2.0",
   "bugs": {
-    "url": "https://github.com/jovotech/jovo-sample-voice-app-nodejs/issues"
+    "url": "https://github.com/jovotech/jovo-sample-voice-app-typescript/issues"
   },
-  "homepage": "https://github.com/jovotech/jovo-sample-voice-app-nodejs#readme"
+  "homepage": "https://github.com/jovotech/jovo-sample-voice-app-typescript"
 }
